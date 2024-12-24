@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Light Theme Colors */
+  --background: #faf9f6;
+  --foreground: #000000;
+  --font-fira: "Fira Sans", sans-serif;
+}
+
+:root.dark {
+  --background: rgba(24, 24, 24, 1);
+  --foreground: #ffffff;
+}
+
+@font-face {
+  font-family: "FiraGO";
+  src: url("../app/fonts/FiraGO-Regular.woff") format("woff2"),
+    url("../app/fonts/FiraGO-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-firago);
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Fira Sans", sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 50;
+}
+
+.-translate-y-150 {
+  --tw-translate-y: -150%;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .animated-image {
+    @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+  }
+}
+
+.banner-main {
+  /* Optional: Set position, size, or other styles for the container */
+  display: inline-block; /* Ensures the container wraps tightly around the SVG */
+  /* You can add more styles as needed */
+}
+
+.highlight-path {
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.highlight-path:hover {
+  opacity: 1; /* Visible on hover */
+}
+
+.mask-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@media screen and (max-width: 640px) {
+  .no_mobile {
+    display: none;
+  }
+  .mobile_showing__overflowing_text {
+    overflow: hidden;
+  }
+}
